@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zadanie3</title>
+    <style>
+        .equal-width{
+            text-align: center;
+            background-color: lightblue;
+            width: 100%;
+            padding:20px;
+
+        }
+        .row{
+            justify-content: space-between;
+            display: flex;
+            width: 100%;
+            gap: 10px;
+        }
+        
+        .row2{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            gap: 10px;
+            
+
+        }
+        .fixed-percentage{
+            text-align: center;
+            background-color: lightblue;
+            width: 40%; 
+            margin-top: 10px;
+            padding: 20px;
+           
+        }
+        
+        .flexible{
+            text-align: center;
+            background-color: lightblue;
+            margin-top: 10px;
+            width: 60%;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <flex class="row">
+        <element class="equal-width">element1</element>
+        <element class="equal-width">element2</element>
+        <element class="equal-width">element3</element>
+    </flex>
+    
+    <flex class="row2">
+        <element class="fixed-percentage">element 4</element>
+        <element class="flexible">element 5</element>
+    </flex>
+    
+</body>
+</html>
