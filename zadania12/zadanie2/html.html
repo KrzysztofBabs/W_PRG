@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage MySQL Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"], input[type="email"], input[type="datetime-local"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .action-buttons input[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .action-buttons input[type="submit"].delete {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Manage MySQL Database</h1>
+
+<h2>Add Person</h2>
+<form action="insert_person.php" method="post">
+    <label for="firstname">First Name</label>
+    <input type="text" id="firstname" name="firstname" required>
+
+    <label for="secondname">Last Name</label>
+    <input type="text" id="secondname" name="secondname" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Add Person">
+</form>
+
+<h2>Add Car</h2>
+<form action="insert_car.php" method="post">
+    <label for="model">Model</label>
+    <input type="text" id="model" name="model" required>
+
+    <label for="price">Year</label>
+    <input type="number" id="price" name="price" required>
+
+    <label for="day_of_buy">Date of Purchase</label>
+    <input type="datetime-local" id="day_of_buy" name="day_of_buy" required>
+
+    <label for="person_id">Select Person</label>
+    <select id="person_id" name="person_id" required>
+        <option value="">Select Person</option>
+<!--        <?php-->
+
+<!--            try {-->
+<!--                $conn = new PDO("mysql:host=localhost;dbname=zadanie2", "root", "");-->
+<!--                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);-->
+<!--        $stmt = $conn->query("SELECT Person_id, Person_firstname, Person_secondname FROM Person");-->
+<!--        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {-->
+<!--        echo "<option value=\"" . $row['Person_id'] . "\">" . htmlspecialchars($row['Person_firstname']) . " " . htmlspecialchars($row['Person_secondname']) . "</option>";-->
+<!--        }-->
+<!--        } catch (PDOException $e) {-->
+<!--        echo "<option value=\"\">Błąd podczas pobierania danych</option>";-->
+<!--        }-->
+<!--        ?>-->
+    </select>
+
+    <input type="submit" value="Add Car">
+</form>
+
+<h2>Persons</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    <?php
+<!--        try {-->
+<!--            $conn = new PDO("mysql:host=localhost;dbname=moja_baza_danych", "twoja_nazwa_uzytkownika", "twoje_haslo");-->
+<!--            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);-->
+<!--    $stmt = $conn->query("SELECT * FROM Person");-->
+<!--    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {-->
+<!--    echo "<tr>";-->
+<!--    echo "<td>" . htmlspecialchars($row['Person_id']) . "</td>";-->
+<!--    echo "<td>" . htmlspecialchars($row['Person_firstname']) . "</td>";-->
+<!--    echo "<td>" . htmlspecialchars($row['Person_secondname']) . "</td>";-->
+<!--    echo "<td>" . htmlspecialchars($row['email']) . "</td>";-->
+<!--    echo "<td class='action-buttons'>";-->
+<!--        echo "<form action='edit_person.php' method='post' style='display:inline;'>";-->
+<!--            echo "<input type='hidden' name='Person_id' value='" . $row['Person_id'] . "'>";-->
+<!--            echo "<input type='submit' value='Edit'>";-->
+<!--            echo "</form>";-->
+<!--        echo "<form action='delete_person.php' method='post' style='display:inline;'>";-->
+<!--            echo "<input type='hidden' name='Person_id' value='" . $row['Person_id'] . "'>";-->
+<!--            echo "<input type='submit' value='Delete' class='delete'>";-->
+<!--            echo "</form>";-->
+<!--        echo "</td>";-->
+<!--    echo "</tr>";-->
+<!--    }-->
+<!--    } catch (PDOException $e) {-->
+<!--    echo "<tr><td colspan='5'>Błąd podczas pobierania danych</td></tr>";-->
+<!--    }-->
+<!--    ?>-->
+</table>
+
+<h2>Cars</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Person ID</th>
+        <th>Action</th>
+    </tr>
+    <?php
+<!--        try {-->
+<!--            $conn = new PDO("mysql:host=localhost;dbname=moja_baza_danych", "twoja_nazwa_uzytkownika", "twoje_haslo");-->
+<!--            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);-->
+<!--    $stmt = $conn->query("SELECT * FROM Cars");-->
+<!--    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {-->
+<!--    echo "<tr>";-->
+<!--    echo "<td>" . htmlspecialchars($row['Cars_id']) . "</td>";-->
+<!--    echo "<td>" . htmlspecialchars($row['Cars_model']) . "</td>";-->
+<!--    echo "<td>" . htmlspecialchars($row['Cars_price']) . "</td>";-->
+<!--    echo "<td>" . htmlspecialchars($row['Person_id']) . "</td>";-->
+<!--    echo "<td class='action-buttons'>";-->
+<!--        echo "<form action='edit_car.php' method='post' style='display:inline;'>";-->
+<!--            echo "<input type='hidden' name='Cars_id' value='" . $row['Cars_id'] . "'>";-->
+<!--            echo "<input type='submit' value='Edit'>";-->
+<!--            echo "</form>";-->
+<!--        echo "<form action='delete_car.php' method='post' style='display:inline;'>";-->
+<!--            echo "<input type='hidden' name='Cars_id' value='" . $row['Cars_id'] . "'>";-->
+<!--            echo "<input type='submit' value='Delete' class='delete'>";-->
+<!--            echo "</form>";-->
+<!--        echo "</td>";-->
+<!--    echo "</tr>";-->
+<!--    }-->
+<!--    } catch (PDOException $e) {-->
+<!--    echo "<tr><td colspan='5'>Błąd podczas pobierania danych</td></tr>";-->
+<!--    }-->
+<!--    ?>-->
+</table>
+</body>
+</html>
+
